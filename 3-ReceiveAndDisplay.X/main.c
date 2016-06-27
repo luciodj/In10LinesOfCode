@@ -1,24 +1,12 @@
 /**
-  Generated Main Source File
+    Serial Port Echo and display demo
 
-  Company:
-    Microchip Technology Inc.
+    File Name:
+        main.c
 
-  File Name:
-    main.c
-
-  Summary:
-    This is the main file generated using MPLAB(c) Code Configurator
-
-  Description:
-    This header file provides implementations for driver APIs for all modules selected in the GUI.
-    Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - v3.00
-        Device            :  PIC16F18855
-        Driver Version    :  2.00
-    The generated drivers are tested against the following:
-        Compiler          :  XC8 1.35
-        MPLAB             :  MPLAB X 3.20
+    Device            :  PIC16F18855
+    Compiler          :  XC8 1.35
+    MPLAB             :  MPLAB X 3.30
 */
 
 #include "mcc_generated_files/mcc.h"
@@ -38,6 +26,3 @@ void main(void)
         LATA = c;           // publish to LEDs
     }
 }
-/**
- End of File
-*/

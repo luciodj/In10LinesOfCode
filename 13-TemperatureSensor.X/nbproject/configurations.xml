@@ -36,8 +36,7 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
-      <itemPath>/Users/m91329/Developer/MPLABXProjects/XPRESS/Temperature Sensor - Xpress.X/MyConfig.mc3</itemPath>
-      <itemPath>/Users/m91329/Developer/MPLABXProjects/XPRESS/TemperatureSensor.X/MyConfig.mc3</itemPath>
+      <itemPath>device_config.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -70,7 +69,7 @@
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
         <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>true</makeCustomizationPostStepEnabled>
-        <makeCustomizationPostStep>cp   ${ImagePath}   /Volumes/XPRESS/code.hex</makeCustomizationPostStep>
+        <makeCustomizationPostStep>if [ -d /Volumes/XPRESS ]; then cp ${ImagePath}  /Volumes/XPRESS/code.hex; fi</makeCustomizationPostStep>
         <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>

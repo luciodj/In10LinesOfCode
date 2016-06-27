@@ -4,7 +4,6 @@
  * "Created in MPLAB Xpress"
  */
 
-
 #include "mcc_generated_files/mcc.h"
 
 void main(void) 

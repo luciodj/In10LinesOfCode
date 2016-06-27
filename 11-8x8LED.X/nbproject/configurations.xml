@@ -36,7 +36,7 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
-      <itemPath>/Users/m91329/Developer/MPLABXProjects/XPRESS/8x8_LED_-_Xpress.X/MyConfig.mc3</itemPath>
+      <itemPath>device_config.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -69,7 +69,7 @@
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
         <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>true</makeCustomizationPostStepEnabled>
-        <makeCustomizationPostStep>cp ${ImagePath}  /Volumes/XPRESS</makeCustomizationPostStep>
+        <makeCustomizationPostStep>if [ -d /Volumes/XPRESS ]; then cp ${ImagePath}  /Volumes/XPRESS/code.hex; fi</makeCustomizationPostStep>
         <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
@@ -90,6 +90,7 @@
         <property key="optimization-level" value="9"/>
         <property key="optimization-set" value="default"/>
         <property key="optimization-speed" value="false"/>
+        <property key="optimization-stable-enable" value="false"/>
         <property key="preprocess-assembler" value="true"/>
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
@@ -233,6 +234,18 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0013_CORE_STACK_UNDERFLOW_RESET"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W0014_CORE_INVALID_OPCODE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0015_CORE_INVALID_ALT_WREG_SET"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0016_BSLIM_INSUFFICIENT_BOOT_SEGMENT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0017_BSLIM_LIMITS_EXCEEDS_PROG_MEMORY"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0051_INSTRUCTION_DIV_NOT_ENOUGH_REPEAT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0052_INSTRUCTION_DIV_TOO_MANY_REPEAT"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W0101_SIM_UPDATE_FAILED"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0102_SIM_PERIPH_MISSING"
@@ -242,6 +255,8 @@
         <property key="warningmessagebreakoptions.W0104_SIM_FAILED_TO_INIT_TOOL"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0105_SIM_INVALID_FIELD"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0106_SIM_PERIPH_PARTIAL_SUPPORT"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0201_ADC_NO_STIMULUS_FILE"
                   value="report"/>
@@ -298,6 +313,31 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0229_ADC_INVALID_ADCS"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W0230_ADC_TRIGSEL_NOT_SUPPORTED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0231_ADC_NOT_WARMED" value="report"/>
+        <property key="warningmessagebreakoptions.W0232_ADC_CALIBRATION_ABORTED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0233_ADC_CORE_POWERED_EARLY"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0234_ADC_ALREADY_CALIBRATING"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0235_ADC_CAL_TYPE_CHANGED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0236_ADC_CAL_INVALIDATED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0237_ADC_UNKNOWN_DATASHEET"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0238_ADC_INVALID_SFR_FIELD_VALUE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0239_ADC_UNSUPPORTED_INPUT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0240_ADC_NOT_CALIBRATED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0241_ADC_FRACTIONAL_NOT_ALLOWED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0242_ADC_BG_INT_BEFORE_PWR"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W0400_PWM_PWM_FASTER_THAN_FOSC"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0700_CLC_GENERAL_WARNING"
@@ -320,6 +360,9 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W1405_DMA_IRQ_DIR_MISMATCH"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W1600_PPS_INVALID_MAP" value="report"/>
+        <property key="warningmessagebreakoptions.W1601_PPS_INVALID_PIN_DESCRIPTION"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W2001_INPUTCAPTURE_TMR3_UNAVAILABLE"
                   value="report"/>
         <property key="warningmessagebreakoptions.W2002_INPUTCAPTURE_CAPTURE_EMPTY"
@@ -333,6 +376,12 @@
         <property key="warningmessagebreakoptions.W2502_OUTPUTCOMPARE_BAD_SYNC_SOURCE"
                   value="report"/>
         <property key="warningmessagebreakoptions.W2503_OUTPUTCOMPARE_BAD_TRIGGER_SOURCE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W7001_SMT_CLK_SELECTION_NOT_SUPPORT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W7002_SMT_SIG_SELECTION_NOT_SUPPORT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W7003_SMT_WIN_SELECTION_NOT_SUPPORT"
                   value="report"/>
         <property key="warningmessagebreakoptions.W9001_TMR_GATE_AND_EXTCLOCK_ENABLED"
                   value="report"/>
@@ -358,6 +407,10 @@
         <property key="warningmessagebreakoptions.W9602_COMP_DAC_SOURCE_UNAVAILABLE"
                   value="report"/>
         <property key="warningmessagebreakoptions.W9603_COMP_CVREF_SOURCE_UNAVAILABLE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W9604_COMP_SLOPE_SOURCE_UNAVAILABLE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W9605_COMP_PRG_SOURCE_UNAVAILABLE"
                   value="report"/>
         <property key="warningmessagebreakoptions.W9801_FVR_INVALID_MODE_SELECTION"
                   value="report"/>
@@ -433,6 +486,7 @@
         <property key="optimization-level" value="9"/>
         <property key="optimization-set" value="default"/>
         <property key="optimization-speed" value="false"/>
+        <property key="optimization-stable-enable" value="false"/>
         <property key="preprocess-assembler" value="true"/>
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
@@ -576,6 +630,18 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0013_CORE_STACK_UNDERFLOW_RESET"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W0014_CORE_INVALID_OPCODE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0015_CORE_INVALID_ALT_WREG_SET"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0016_BSLIM_INSUFFICIENT_BOOT_SEGMENT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0017_BSLIM_LIMITS_EXCEEDS_PROG_MEMORY"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0051_INSTRUCTION_DIV_NOT_ENOUGH_REPEAT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0052_INSTRUCTION_DIV_TOO_MANY_REPEAT"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W0101_SIM_UPDATE_FAILED"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0102_SIM_PERIPH_MISSING"
@@ -585,6 +651,8 @@
         <property key="warningmessagebreakoptions.W0104_SIM_FAILED_TO_INIT_TOOL"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0105_SIM_INVALID_FIELD"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0106_SIM_PERIPH_PARTIAL_SUPPORT"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0201_ADC_NO_STIMULUS_FILE"
                   value="report"/>
@@ -641,6 +709,31 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0229_ADC_INVALID_ADCS"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W0230_ADC_TRIGSEL_NOT_SUPPORTED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0231_ADC_NOT_WARMED" value="report"/>
+        <property key="warningmessagebreakoptions.W0232_ADC_CALIBRATION_ABORTED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0233_ADC_CORE_POWERED_EARLY"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0234_ADC_ALREADY_CALIBRATING"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0235_ADC_CAL_TYPE_CHANGED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0236_ADC_CAL_INVALIDATED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0237_ADC_UNKNOWN_DATASHEET"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0238_ADC_INVALID_SFR_FIELD_VALUE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0239_ADC_UNSUPPORTED_INPUT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0240_ADC_NOT_CALIBRATED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0241_ADC_FRACTIONAL_NOT_ALLOWED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0242_ADC_BG_INT_BEFORE_PWR"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W0400_PWM_PWM_FASTER_THAN_FOSC"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0700_CLC_GENERAL_WARNING"
@@ -663,6 +756,9 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W1405_DMA_IRQ_DIR_MISMATCH"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W1600_PPS_INVALID_MAP" value="report"/>
+        <property key="warningmessagebreakoptions.W1601_PPS_INVALID_PIN_DESCRIPTION"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W2001_INPUTCAPTURE_TMR3_UNAVAILABLE"
                   value="report"/>
         <property key="warningmessagebreakoptions.W2002_INPUTCAPTURE_CAPTURE_EMPTY"
@@ -676,6 +772,12 @@
         <property key="warningmessagebreakoptions.W2502_OUTPUTCOMPARE_BAD_SYNC_SOURCE"
                   value="report"/>
         <property key="warningmessagebreakoptions.W2503_OUTPUTCOMPARE_BAD_TRIGGER_SOURCE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W7001_SMT_CLK_SELECTION_NOT_SUPPORT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W7002_SMT_SIG_SELECTION_NOT_SUPPORT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W7003_SMT_WIN_SELECTION_NOT_SUPPORT"
                   value="report"/>
         <property key="warningmessagebreakoptions.W9001_TMR_GATE_AND_EXTCLOCK_ENABLED"
                   value="report"/>
@@ -701,6 +803,10 @@
         <property key="warningmessagebreakoptions.W9602_COMP_DAC_SOURCE_UNAVAILABLE"
                   value="report"/>
         <property key="warningmessagebreakoptions.W9603_COMP_CVREF_SOURCE_UNAVAILABLE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W9604_COMP_SLOPE_SOURCE_UNAVAILABLE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W9605_COMP_PRG_SOURCE_UNAVAILABLE"
                   value="report"/>
         <property key="warningmessagebreakoptions.W9801_FVR_INVALID_MODE_SELECTION"
                   value="report"/>

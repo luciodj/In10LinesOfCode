@@ -68,7 +68,7 @@
 #define LED0_SetHigh()    do { LATA0 = 1; } while(0)
 #define LED0_SetLow()   do { LATA0 = 0; } while(0)
 #define LED0_Toggle()   do { LATA0 = ~LATA0; } while(0)
-#define LED0_GetValue()         RA0
+#define LED0_GetValue()         PORTAbits.RA0
 #define LED0_SetDigitalInput()    do { TRISA0 = 1; } while(0)
 #define LED0_SetDigitalOutput()   do { TRISA0 = 0; } while(0)
 
@@ -87,7 +87,7 @@
 #define LED1_SetHigh()    do { LATA1 = 1; } while(0)
 #define LED1_SetLow()   do { LATA1 = 0; } while(0)
 #define LED1_Toggle()   do { LATA1 = ~LATA1; } while(0)
-#define LED1_GetValue()         RA1
+#define LED1_GetValue()         PORTAbits.RA1
 #define LED1_SetDigitalInput()    do { TRISA1 = 1; } while(0)
 #define LED1_SetDigitalOutput()   do { TRISA1 = 0; } while(0)
 
@@ -106,7 +106,7 @@
 #define LED2_SetHigh()    do { LATA2 = 1; } while(0)
 #define LED2_SetLow()   do { LATA2 = 0; } while(0)
 #define LED2_Toggle()   do { LATA2 = ~LATA2; } while(0)
-#define LED2_GetValue()         RA2
+#define LED2_GetValue()         PORTAbits.RA2
 #define LED2_SetDigitalInput()    do { TRISA2 = 1; } while(0)
 #define LED2_SetDigitalOutput()   do { TRISA2 = 0; } while(0)
 
@@ -125,7 +125,7 @@
 #define LED3_SetHigh()    do { LATA3 = 1; } while(0)
 #define LED3_SetLow()   do { LATA3 = 0; } while(0)
 #define LED3_Toggle()   do { LATA3 = ~LATA3; } while(0)
-#define LED3_GetValue()         RA3
+#define LED3_GetValue()         PORTAbits.RA3
 #define LED3_SetDigitalInput()    do { TRISA3 = 1; } while(0)
 #define LED3_SetDigitalOutput()   do { TRISA3 = 0; } while(0)
 
@@ -134,24 +134,6 @@
 #define LED3_SetAnalogMode()   do { ANSA3 = 1; } while(0)
 #define LED3_SetDigitalMode()   do { ANSA3 = 0; } while(0)
 
-
-// get/set BTN aliases
-#define BTN_TRIS               TRISA5
-#define BTN_LAT                LATA5
-#define BTN_PORT               RA5
-#define BTN_WPU                WPUA5
-#define BTN_ANS                ANSA5
-#define BTN_SetHigh()    do { LATA5 = 1; } while(0)
-#define BTN_SetLow()   do { LATA5 = 0; } while(0)
-#define BTN_Toggle()   do { LATA5 = ~LATA5; } while(0)
-#define BTN_GetValue()         RA5
-#define BTN_SetDigitalInput()    do { TRISA5 = 1; } while(0)
-#define BTN_SetDigitalOutput()   do { TRISA5 = 0; } while(0)
-
-#define BTN_SetPullup()    do { WPUA5 = 1; } while(0)
-#define BTN_ResetPullup()   do { WPUA5 = 0; } while(0)
-#define BTN_SetAnalogMode()   do { ANSA5 = 1; } while(0)
-#define BTN_SetDigitalMode()   do { ANSA5 = 0; } while(0)
 
 // get/set CS aliases
 #define CS_TRIS               TRISB2
@@ -162,7 +144,7 @@
 #define CS_SetHigh()    do { LATB2 = 1; } while(0)
 #define CS_SetLow()   do { LATB2 = 0; } while(0)
 #define CS_Toggle()   do { LATB2 = ~LATB2; } while(0)
-#define CS_GetValue()         RB2
+#define CS_GetValue()         PORTBbits.RB2
 #define CS_SetDigitalInput()    do { TRISB2 = 1; } while(0)
 #define CS_SetDigitalOutput()   do { TRISB2 = 0; } while(0)
 
@@ -171,6 +153,7 @@
 #define CS_SetAnalogMode()   do { ANSB2 = 1; } while(0)
 #define CS_SetDigitalMode()   do { ANSB2 = 0; } while(0)
 
+//
 /**
  * @Param
     none

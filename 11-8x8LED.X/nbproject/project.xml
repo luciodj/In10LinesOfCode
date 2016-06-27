@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>8x8_LED_-_Xpress</name>
+            <name>8x8_LED</name>
             <creation-uuid>09eb9bb0-7ecc-44f5-b2da-77576b4e58ed</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>

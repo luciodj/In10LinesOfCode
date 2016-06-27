@@ -96,8 +96,8 @@ ifneq ($(INFORMATION_MESSAGE), )
 endif
 	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/14-IR-Thermo.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 	@echo "--------------------------------------"
-	@echo "User defined post-build step: [cp ${ImagePath} /Volumes/XPRESS/code.hex]"
-	@cp ${ImagePath} /Volumes/XPRESS/code.hex
+	@echo "User defined post-build step: [if [ -d /Volumes/XPRESS ]; then cp ${ImagePath}  /Volumes/XPRESS/code.hex; fi]"
+	@if [ -d /Volumes/XPRESS ]; then cp ${ImagePath}  /Volumes/XPRESS/code.hex; fi
 	@echo "--------------------------------------"
 
 MP_PROCESSOR_OPTION=16F18855
