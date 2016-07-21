@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=13-TemperatureSensor.X
+PROJECTNAME=13-TemperatureSensorLimit.X
 
 # Active Configuration
 DEFAULTCONF=default
