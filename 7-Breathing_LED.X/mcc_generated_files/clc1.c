@@ -13,12 +13,12 @@
   @Description
     This source file provides implementations for driver APIs for CLC1.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 3.15.0
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.1
         Device            :  PIC16F18855
         Driver Version    :  2.00
     The generated drivers are tested against the following:
         Compiler          :  XC8 1.35
-        MPLAB             :  MPLAB X 3.20
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -89,6 +89,7 @@ void CLC1_Initialize(void)
     CLC1CON = 0x80;
 
 }
+
 
 bool CLC1_OutputStatusGet(void)
 {

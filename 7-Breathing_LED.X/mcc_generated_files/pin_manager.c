@@ -13,12 +13,12 @@
   Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 3.15.0
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.1
         Device            :  PIC16F18855
         Driver Version    :  1.02
     The generated drivers are tested against the following:
         Compiler          :  XC8 1.35
-        MPLAB             :  MPLAB X 3.20
+        MPLAB             :  MPLAB X 3.40
 
     Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
 
@@ -45,27 +45,52 @@
 
 #include <xc.h>
 #include "pin_manager.h"
-#include <stdbool.h>
+#include "stdbool.h"
+
 
 void PIN_MANAGER_Initialize(void)
 {
-    LATB = 0x0;
-    WPUE = 0x8;
-    LATA = 0x0;
-    LATC = 0x0;
-    WPUA = 0xFF;
-    WPUB = 0xFF;
-    WPUC = 0xFF;
-    ANSELA = 0xFF;
-    ANSELB = 0x7F;
-    ANSELC = 0xD7;
+    /**
+    LATx registers
+    */   
+    LATA = 0x00;    
+    LATB = 0x00;    
+    LATC = 0x00;    
+
+    /**
+    TRISx registers
+    */    
+    TRISA = 0xF0;
     TRISB = 0xFF;
     TRISC = 0xFF;
-    TRISA = 0xF0;
 
+    /**
+    ANSELx registers
+    */   
+    ANSELC = 0xD7;
+    ANSELB = 0x7F;
+    ANSELA = 0xFF;
+
+    /**
+    WPUx registers
+    */ 
+    WPUE = 0x08;
+    WPUB = 0xFF;
+    WPUA = 0xFF;
+    WPUC = 0xFF;
+
+    /**
+    ODx registers
+    */   
+    ODCONA = 0x00;
+    ODCONB = 0x00;
+    ODCONC = 0x00;
     
 
 
+   
+    
+    
     bool state = GIE;
     GIE = 0;
     PPSLOCK = 0x55;
@@ -74,10 +99,7 @@ void PIN_MANAGER_Initialize(void)
 
     T6AINPPSbits.T6AINPPS = 0x0F;   //RB7->TMR6:T6IN;
     T4AINPPSbits.T4AINPPS = 0x15;   //RC5->TMR4:T4IN;
-    CLCIN1PPSbits.CLCIN1PPS = 0x13;   //RC3->CLC1:CLCIN1;
     CLCIN0PPSbits.CLCIN0PPS = 0x13;   //RC3->CLC1:CLCIN0;
-    CLCIN2PPSbits.CLCIN2PPS = 0x13;   //RC3->CLC1:CLCIN2;
-    CLCIN3PPSbits.CLCIN3PPS = 0x13;   //RC3->CLC1:CLCIN3;
     RA3PPS = 0x01;   //RA3->CLC1:CLC1OUT;
     RA1PPS = 0x01;   //RA1->CLC1:CLC1OUT;
     RA2PPS = 0x01;   //RA2->CLC1:CLC1OUT;
@@ -88,12 +110,11 @@ void PIN_MANAGER_Initialize(void)
     PPSLOCKbits.PPSLOCKED = 0x01; // lock PPS
 
     GIE = state;
-
-}
-
+}       
 
 void PIN_MANAGER_IOC(void)
-{    
+{   
+
 }
 
 /**

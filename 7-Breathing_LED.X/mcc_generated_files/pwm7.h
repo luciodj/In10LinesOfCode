@@ -1,8 +1,8 @@
  /**
-   PWM7 Generated Driver File  
- 
+   PWM7 Generated Driver File
+
    @Company
-     Microchip Technology Inc. 
+     Microchip Technology Inc.
 
    @File Name
      pwm7.c
@@ -13,12 +13,12 @@
    @Description
      This header file provides implementations for driver APIs for PWM7.
      Generation Information :
-         Product Revision  :  MPLAB(c) Code Configurator - 3.15.0
+         Product Revision  :  MPLAB(c) Code Configurator - 4.15.1
          Device            :  PIC16F18855
          Driver Version    :  2.00
      The generated drivers are tested against the following:
          Compiler          :  XC8 1.35
-         MPLAB             :  MPLAB X 3.20
+         MPLAB             :  MPLAB X 3.40
  */
 
  /*
@@ -41,11 +41,11 @@
 
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
- */
+*/
 
  #ifndef _PWM7_H
  #define _PWM7_H
- 
+
  /**
    Section: Included Files
  */
@@ -63,7 +63,7 @@
    Section: Macro Declarations
  */
 
- #define PWM7_INITIALIZE_DUTY_VALUE    511
+ #define PWM7_INITIALIZE_DUTY_VALUE    247
 
  /**
    Section: PWM Module APIs
@@ -88,7 +88,7 @@
      None
 
    @Comment
-     
+
 
   @Example
      <code>
@@ -108,7 +108,7 @@
      This routine loads the 16 bit duty cycle value.
 
    @Preconditions
-     PWM7_Initialize() function should have been called 
+     PWM7_Initialize() function should have been called
          before calling this function.
 
    @Param
@@ -126,7 +126,7 @@
      </code>
  */
  void PWM7_LoadDutyValue(uint16_t dutyValue);
- 
+
  #ifdef __cplusplus  // Provide C++ Compatibility
 
      }

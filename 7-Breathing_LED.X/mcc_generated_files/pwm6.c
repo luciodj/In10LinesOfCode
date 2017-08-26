@@ -1,25 +1,25 @@
  /**
    PWM6 Generated Driver File
- 
+
    @Company
      Microchip Technology Inc.
- 
+
    @File Name
      pwm6.c
- 
+
    @Summary
      This is the generated driver implementation file for the PWM6 driver using MPLAB(c) Code Configurator
- 
+
    @Description
      This source file provides implementations for driver APIs for PWM6.
      Generation Information :
-         Product Revision  :  MPLAB(c) Code Configurator - 3.15.0
+         Product Revision  :  MPLAB(c) Code Configurator - 4.15.1
          Device            :  PIC16F18855
          Driver Version    :  2.00
      The generated drivers are tested against the following:
          Compiler          :  XC8 1.35
-         MPLAB             :  MPLAB X 3.20
- */ 
+         MPLAB             :  MPLAB X 3.40
+ */
 
  /*
     (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
@@ -41,8 +41,8 @@
 
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
- */
- 
+*/
+
  /**
    Section: Included Files
  */
@@ -57,16 +57,16 @@
  void PWM6_Initialize(void)
  {
      // Set the PWM to the options selected in the MPLAB(c) Code Configurator.
-     // PWM6POL active_hi; PWM6EN enabled; 
+     // PWM6POL active_hi; PWM6EN enabled;
      PWM6CON = 0x80;
-     
-     // DC 127; 
-     PWM6DCH = 0x7F;
-     
-     // DC 1; 
-     PWM6DCL = 0x40;
-     
-     
+
+     // DC 62;
+     PWM6DCH = 0x3E;
+
+     // DC 3;
+     PWM6DCL = 0xC0;
+
+
      // Select timer
      CCPTMRS1bits.P6TSEL = 0x3;
  }
@@ -75,7 +75,7 @@
  {
      // Writing to 8 MSBs of PWM duty cycle in PWMDCH register
      PWM6DCH = (dutyValue & 0x03FC)>>2;
-     
+
      // Writing to 2 LSBs of PWM duty cycle in PWMDCL register
      PWM6DCL = (dutyValue & 0x0003)<<6;
  }

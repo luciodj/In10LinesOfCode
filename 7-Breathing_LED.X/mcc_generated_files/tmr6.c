@@ -13,12 +13,12 @@
   @Description
     This source file provides APIs for TMR6.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 3.15.0
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.1
         Device            :  PIC16F18855
         Driver Version    :  1.00
     The generated drivers are tested against the following:
         Compiler          :  XC8 1.35
-        MPLAB             :  MPLAB X 3.20
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -50,6 +50,11 @@
 #include <xc.h>
 #include "tmr6.h"
 
+/**
+  Section: Global Variables Definitions
+*/
+
+void (*TMR6_InterruptHandler)(void);
 
 /**
   Section: TMR6 APIs
@@ -59,8 +64,8 @@ void TMR6_Initialize(void)
 {
     // Set TMR6 to the options selected in the User Interface
 
-    // T6CKPS 1:8; T6OUTPS 1:1; TMR6ON on; 
-    T6CON = 0x30;
+    // T6CKPS 1:1; T6OUTPS 1:1; TMR6ON off; 
+    T6CON = 0x00;
 
     // T6CS FOSC/4; 
     T6CLKCON = 0x01;
@@ -71,8 +76,8 @@ void TMR6_Initialize(void)
     // T6RSEL T6CKIPPS pin; 
     T6RST = 0x00;
 
-    // PR6 254; 
-    T6PR = 0xFE;
+    // PR6 125; 
+    T6PR = 0x7D;
 
     // TMR6 0; 
     T6TMR = 0x00;

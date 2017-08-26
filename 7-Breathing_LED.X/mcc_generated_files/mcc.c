@@ -13,12 +13,12 @@
   @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 3.15.0
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.1
         Device            :  PIC16F18855
         Driver Version    :  1.02
     The generated drivers are tested against the following:
         Compiler          :  XC8 1.35
-        MPLAB             :  MPLAB X 3.20
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -47,7 +47,7 @@
 
 // CONFIG1
 #pragma config FEXTOSC = OFF    // External Oscillator mode selection bits->Oscillator not enabled
-#pragma config RSTOSC = HFINT1    // Power-up default value for COSC bits->HFINTOSC
+#pragma config RSTOSC = LFINT    // Power-up default value for COSC bits->LFINTOSC
 #pragma config CLKOUTEN = OFF    // Clock Out Enable bit->CLKOUT function is disabled; i/o or oscillator function on OSC2
 #pragma config CSWEN = ON    // Clock Switch Enable bit->Writing to NOSC and NDIV is allowed
 #pragma config FCMEN = ON    // Fail-Safe Clock Monitor Enable bit->FSCM timer enabled
@@ -58,7 +58,7 @@
 #pragma config LPBOREN = OFF    // Low-Power BOR enable bit->ULPBOR disabled
 #pragma config BOREN = ON    // Brown-out reset enable bits->Brown-out Reset Enabled, SBOREN bit is ignored
 #pragma config BORV = LO    // Brown-out Reset Voltage Selection->Brown-out Reset Voltage (VBOR) set to 1.9V on LF, and 2.45V on F Devices
-#pragma config ZCD = ON    // Zero-cross detect disable->Zero-cross detect circuit is disabled at POR.
+#pragma config ZCD = ON    // Zero-cross detect disable->Zero-cross detect circuit is always enabled
 #pragma config PPS1WAY = ON    // Peripheral Pin Select one-way control->The PPSLOCK bit can be cleared and set only once in software
 #pragma config STVREN = ON    // Stack Overflow/Underflow Reset Enable bit->Stack Overflow or Underflow will cause a reset
 
@@ -74,14 +74,14 @@
 #pragma config LVP = ON    // Low Voltage Programming Enable bit->Low Voltage programming enabled. MCLR/Vpp pin function is MCLR.
 
 // CONFIG5
-#pragma config CP = OFF    // UserNVM Program memory code protection bit->UserNVM code protection disabled
-#pragma config CPD = OFF    // DataNVM code protection bit->DataNVM code protection disabled
+#pragma config CP = OFF    // UserNVM Program memory code protection bit->Program Memory code protection disabled
+#pragma config CPD = OFF    // DataNVM code protection bit->Data EEPROM code protection disabled
 
 #include "mcc.h"
 
 void SYSTEM_Initialize(void)
 {
-    
+
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
     PWM6_Initialize();
@@ -93,19 +93,18 @@ void SYSTEM_Initialize(void)
 
 void OSCILLATOR_Initialize(void)
 {
-    // NOSC HFINTOSC; NDIV 4; 
-    OSCCON1 = 0x62;
-    // CSWHOLD may proceed; SOSCPWR Low power; 
+    // NOSC LFINTOSC; NDIV 1;
+    OSCCON1 = 0x50;
+    // CSWHOLD may proceed; SOSCPWR Low power;
     OSCCON3 = 0x00;
-    // MFOEN disabled; LFOEN disabled; ADOEN disabled; SOSCEN disabled; EXTOEN disabled; HFOEN disabled; 
+    // MFOEN disabled; LFOEN disabled; ADOEN disabled; SOSCEN disabled; EXTOEN disabled; HFOEN disabled;
     OSCEN = 0x00;
-    // HFFRQ 4_MHz; 
+    // HFFRQ 4_MHz;
     OSCFRQ = 0x02;
-    // HFTUN 0; 
+    // HFTUN 0;
     OSCTUNE = 0x00;
-    // Set the secondary oscillator
-    
 }
+
 
 /**
  End of File

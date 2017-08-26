@@ -13,12 +13,12 @@
   @Description
     This source file provides APIs for TMR4.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 3.15.0
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.1
         Device            :  PIC16F18855
         Driver Version    :  1.00
     The generated drivers are tested against the following:
         Compiler          :  XC8 1.35
-        MPLAB             :  MPLAB X 3.20
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -50,6 +50,11 @@
 #include <xc.h>
 #include "tmr4.h"
 
+/**
+  Section: Global Variables Definitions
+*/
+
+void (*TMR4_InterruptHandler)(void);
 
 /**
   Section: TMR4 APIs
@@ -59,8 +64,8 @@ void TMR4_Initialize(void)
 {
     // Set TMR4 to the options selected in the User Interface
 
-    // T4CKPS 1:8; T4OUTPS 1:1; TMR4ON on; 
-    T4CON = 0x30;
+    // T4CKPS 1:1; T4OUTPS 1:1; TMR4ON off; 
+    T4CON = 0x00;
 
     // T4CS FOSC/4; 
     T4CLKCON = 0x01;
@@ -71,8 +76,8 @@ void TMR4_Initialize(void)
     // T4RSEL T4CKIPPS pin; 
     T4RST = 0x00;
 
-    // PR4 255; 
-    T4PR = 0xFF;
+    // PR4 123; 
+    T4PR = 0x7B;
 
     // TMR4 0; 
     T4TMR = 0x00;

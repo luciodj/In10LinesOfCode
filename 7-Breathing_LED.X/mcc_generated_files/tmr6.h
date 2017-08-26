@@ -13,12 +13,12 @@
   @Description
     This header file provides APIs for TMR6.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 3.15.0
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.1
         Device            :  PIC16F18855
         Driver Version    :  1.00
     The generated drivers are tested against the following:
         Compiler          :  XC8 1.35
-        MPLAB             :  MPLAB X 3.20
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -289,6 +289,9 @@ typedef enum
     /* LC4_out is the Timer external reset source 
      */
     TMR6_LC4_OUT
+
+
+
 
 } TMR6_HLT_EXT_RESET_SOURCE;
 
